@@ -26,14 +26,14 @@ export default function RootLayout({
             </Link>
             <ul className="flex gap-4">
               <li>
-                <a href="/" className="hover:underline">
+                <Link href="/" className="hover:underline">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/" className="hover:underline">
+                <Link href="/" className="hover:underline">
                   About
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
