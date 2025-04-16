@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Blog App",
@@ -20,9 +21,9 @@ export default function RootLayout({
       <header className="bg-slate-800 text-white p-4">
         <div className="container mx-auto">
           <nav className="flex justify-between items-center">
-            <a href="/" className="text-xl font-bold">
+            <Link href="/" className="text-xl font-bold">
               My Blog
-            </a>
+            </Link>
             <ul className="flex gap-4">
               <li>
                 <a href="/" className="hover:underline">
