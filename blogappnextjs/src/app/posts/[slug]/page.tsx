@@ -1,13 +1,13 @@
-import Link from "next/link";
-import { format } from "date-fns";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getBlogPosts, getBlogPostById } from "@/lib/blog";
+import { format } from "date-fns";
+import Link from "next/link";
+import { getBlogPostById, getBlogPosts } from "@/lib/blog";
 
-// Correct the export for generateStaticParams
 export function generateStaticParams() {
   const posts = getBlogPosts();
 
-  return posts.map((post) => ({
+  return posts.map((post:any) => ({
     slug: post.slug,
   }));
 }
@@ -16,7 +16,7 @@ export async function generateMetadata({
   params,
 }: {
   params: { slug: string };
-}) {
+}): Promise<Metadata> {
   const post = await getBlogPostById(params?.slug);
 
   if (!post) {
@@ -31,7 +31,6 @@ export async function generateMetadata({
   };
 }
 
-// Correct the default export for BlogPostPage
 export default async function BlogPostPage({
   params,
 }: {
@@ -41,6 +40,7 @@ export default async function BlogPostPage({
   if (!post) {
     notFound();
   }
+
   return (
     <main className="container mx-auto px-4 py-8">
       <article className="max-w-3xl mx-auto">
@@ -66,7 +66,7 @@ export default async function BlogPostPage({
         </div>
 
         <div className="prose max-w-none">
-          {post.content.split("\n\n").map((paragraph, index) => (
+          {post.content.split("\n\n").map((paragraph:any, index:any) => (
             <p key={index} className="mb-4">
               {paragraph}
             </p>
