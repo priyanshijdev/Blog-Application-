@@ -7,7 +7,7 @@ import { getBlogPostById, getBlogPosts } from "@/lib/blog";
 export function generateStaticParams() {
   const posts = getBlogPosts();
 
-  return posts.map((post:any) => ({
+  return posts.map((post) => ({
     slug: post.slug,
   }));
 }
@@ -66,7 +66,7 @@ export default async function BlogPostPage({
         </div>
 
         <div className="prose max-w-none">
-          {post.content.split("\n\n").map((paragraph:any, index:any) => (
+          {post.content.split("\n\n").map((paragraph, index) => (
             <p key={index} className="mb-4">
               {paragraph}
             </p>
